@@ -21,9 +21,9 @@
         <form action="" id="form-input">
             <fieldset>
                 <legend>input</legend>
-                <label for="">Solo letras minúsculas, sin tildes.</label><br>
+                <label for="">Ingresa el mensaje aquí: </label><br>
                 <textarea name="texto-input" id="texto-input" cols="80" rows="10" placeholder="Ingrese texto aquí"></textarea><br>
-                <button id="button-encriptar" onclick="ecriptarMensaje()">Encriptar</button>
+                <button id="button-encriptar" onclick="encriptarMensaje()">Encriptar</button>
                 <button>Descifrar</button> <!--Crear un prompt para ingresar una clave secreta, no hay el mensaje caiga en manos equivacadas...-->
             </fieldset>
         </form>
@@ -60,51 +60,59 @@
     </footer>   
     <script>
 //================================================FUNCTIONS==========================================<
-    function ecriptarMensaje(texto){
-        var texto = mensaje.value; 
-        var textoCurado = texto.toLowerCase(); 
-        var mensEncriptado = []; 
-        var llaveA = "ai"; 
-        var llaveE = "enter"; 
-        var llaveI = "imes"; 
-        var llaveO = "ober"; 
-        var llaveU = "ufat"; 
-
-        //console.log(textoCurado);
-        for(var i = 0; i < textoCurado.length; i++){
-            //console.log(texto[i]);
-            
-            if  (textoCurado[i] === "a") {
-                mensEncriptado.push(llaveA);
-            }
-            else if (textoCurado[i] === "e"){
-                mensEncriptado.push(llaveE);
-            }
-            else if (textoCurado[i] === "i"){
-                mensEncriptado.push(llaveI);
-            }
-            else if (textoCurado[i] === "o"){
-                mensEncriptado.push(llaveO);
-            }
-            else if (textoCurado[i] === "u"){
-                mensEncriptado.push(llaveU);
-            }
-            else {
-                mensEncriptado.push(textoCurado[i]);
-            }
+function encriptarMensaje(texto){
+    var texto = mensaje.value; 
+    var textoCurado = texto.toLowerCase(); 
+    var mensEncriptado = [];
+    var llaveA = "ai"; 
+    var llaveE = "enter"; 
+    var llaveI = "imes"; 
+    var llaveO = "ober"; 
+    var llaveU = "ufat"; 
+    
+    for (j = 0; j < textoCurado.length; j++){
+        if( ((textoCurado.charCodeAt(j) >= 97 ) && (textoCurado.charCodeAt(j) <= 122 ))){
+                break;
+        }else{
+            alert("***ERROR DE VALIDACIÓN*** >>> El mensaje tiene algún caracter especial. ¿Eres alienigena o algo así? Intenta con lenguaje del alfabeto terrícola.");
+            break;
         }
-        console.log(mensEncriptado);
-        var mensajeFinal = mensEncriptado.join('');  
-        console.log(mensajeFinal);  
-        
-        return mensajeFinal;        
     }    
+    for(var i = 0; i < textoCurado.length; i++){
+        //console.log(texto[i]);
+        
+        if  ((textoCurado[i] === "a") || (textoCurado[i] === "á")) {
+            mensEncriptado.push(llaveA);
+        }
+        else if ((textoCurado[i] === "e") || (textoCurado[i] === "é")) {
+            mensEncriptado.push(llaveE);
+        }
+        else if ((textoCurado[i] === "i") || (textoCurado[i] === "í")){
+            mensEncriptado.push(llaveI);
+        }
+        else if ((textoCurado[i] === "o") || (textoCurado[i] === "ó")){
+            mensEncriptado.push(llaveO);
+        }
+        else if ((textoCurado[i] === "u") || (textoCurado[i] === "ú")){
+            mensEncriptado.push(llaveU);
+        }
+        else {
+            mensEncriptado.push(textoCurado[i]);
+        }
+    }
+    console.log(mensEncriptado);    
+    
+    var mensajeFinal = mensEncriptado.join('');  
+    console.log(mensajeFinal);  
+    
+    return mensajeFinal;        
+}    
 //==========================================================================================<
 //-----------------------------------------MAIN--------------------------------------------->
     var mensaje = document.querySelector("#texto-input");
 
     var button_encriptar = document.querySelector("#button-encriptar");
-    button_encriptar.onclick = ecriptarMensaje;  
+    button_encriptar.onclick = encriptarMensaje;  
 
 //-----------------------------------------END-----------------------------------------------|
     </script>     
