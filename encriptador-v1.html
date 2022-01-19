@@ -5,78 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador de Texto</title>
-    <style>
-        header, img{
-            border-radius: 20%;
-        }
-        body{
-            background-color: rgb(88, 65, 241);
-        }
-        label{
-            font-family:sans-serif;
-            font-weight: bold;
-            font-size: small;
-        }
-        footer{
-            color: beige;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size:small;
-            background-color: blue;
-        }
-        #titulo, p{
-            font-family: 'Courier New', Courier, monospace;
-            color: azure;
-        }
-        legend{
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-        #form-input{
-            border: black 1px solid;
-            background-color:rgb(238, 211, 167);
-        }
-        #form-output{
-            border: black 1px solid;
-            background-color:rgb(106, 241, 106);
-        }
-    </style>
+    <link rel="stylesheet" href="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/style.css">
 </head>
 <body>
-    <header>
-        <img src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/maquina-enigma.png" alt="máquina enigma" width="100" height="auto">
+    <header id="encabezado">
+        <img id="img-enigma" src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/maquina-enigma.png" alt="máquina enigma" width="100" height="auto">
         <h1 id="titulo">/*CÓDIGO SECRETO*/</h1>
-    </header>
-    
-    <p>Programa para la encriptación de mensajes de alta confidencialidad.</p>
-    <p>En la caja de la izquierda, ingrese el texto a encriptar o desencriptar, según sea el caso.</p>
-    <p>En la caja de la derecha podrá ver el resultado y usarlo para proteger sus comuicaciones.</p>
+        <h3 id="subtitulo">Aplicación para el cifrado de mensajes de alta confidencialidad.</h3>
+    </header>   
+    <hr>
+<div class="container">
     <div id="input-area">
-<form action="" id="form-input">
-    <fieldset>
-        <legend>input</legend>
-        <label for="">Solo letras minúsculas, sin tildes.</label><br>
-        <textarea name="texto-input" id="texto-input" cols="30" rows="10" placeholder="Ingrese texto aquí"></textarea><br>
-        <button>Encriptar</button>
-        <button>Descifrar</button>
-    </fieldset>
-</form>
+        <p>En la caja de la izquierda, ingrese el texto a encriptar o desencriptar, según sea el caso.</p><br>
+        <form action="" id="form-input">
+            <fieldset>
+                <legend>input</legend>
+                <label for="">Solo letras minúsculas, sin tildes.</label><br>
+                <textarea name="texto-input" id="texto-input" cols="80" rows="10" placeholder="Ingrese texto aquí"></textarea><br>
+                <button>Encriptar</button>
+                <button>Descifrar</button> <!--Crear un prompt para ingresar una clave secreta, no hay el mensaje caiga en manos equivacadas...-->
+            </fieldset>
+        </form>
     </div>
     <div id="output-area">
-<form action="" id="form-output">
-    <fieldset>
-        <legend>output</legend>
-        <label for="">Mensaje encriptado:</label><br>
-        <textarea name="texto-output" id="texto-output" cols="30" rows="10"></textarea><br>
-        <button>Copiar</button>
-    </fieldset>    
-</form>
+        <p>En la caja de la derecha podrá ver el resultado y usarlo para proteger sus comuicaciones.</p><br>
+        <form action="" id="form-output">
+            <fieldset>
+                <legend>output</legend>
+                <label for="">Mensaje encriptado:</label><br>
+                <textarea name="texto-output" id="texto-output" cols="80" rows="10"></textarea><br>
+                <button>Copiar</button>
+            </fieldset>    
+        </form>
     </div>
-    <footer>
-        <h3>@MonkBalmung</h3>
-        <ul>
-            <li><a href="https://twitter.com/monkbalmung"><img src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/twitter.png" alt="twitter" width="40" height="40"></a></li>
-            <li><a href="https://github.com/MonkBalmung"><img src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/github.png" alt="github" width="40" height="40"></a></li>
-            <li><a href="https://www.linkedin.com/in/diego-fernando-meneses-ballesteros-8a559398/"><img src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/linkedin.png" alt="linkedin" width="40" height="40"></a></li>
-        </ul>
+</div>
+<hr>
+    <footer class="footer">
+        <div class="id-developer">
+            <div>
+                <img id ="img-balmung" src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/balmung.jpg" alt="balmung-sword" width="50" height="auto">
+            </div>
+            <h3 id="dev">@MonkBalmung</h3>
+        </div>
+        <nav class="footer-nav">
+            <ul class="lista-socialMedia">
+                <li><a href="https://twitter.com/monkbalmung"><img src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/twitter.png" alt="twitter" width="30" height="30"></a></li>
+                <li><a href="https://github.com/MonkBalmung"><img src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/github.png" alt="github" width="30" height="30"></a></li>
+                <li><a href="https://www.linkedin.com/in/diego-fernando-meneses-ballesteros-8a559398/"><img src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/linkedin.png" alt="linkedin" width="30" height="30"></a></li>
+                <li><a href="tel:+573228273326"><img src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/whatsapp.jpg" alt="whatsapp" width="30" height="30"></a></li>
+            </ul>
+        </nav>
     </footer>        
 </body>
 </html>
