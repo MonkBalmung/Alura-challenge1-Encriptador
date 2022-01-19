@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/maquina-enigma.png">
     <title>Encriptador de Texto</title>
     <link rel="stylesheet" href="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/style.css">
 </head>
@@ -11,7 +12,7 @@
     <header id="encabezado">
         <img id="img-enigma" src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/maquina-enigma.png" alt="máquina enigma" width="100" height="auto">
         <h1 id="titulo">/*CÓDIGO SECRETO*/</h1>
-        <h3 id="subtitulo">Aplicación para el cifrado de mensajes de alta confidencialidad.</h3>
+        <h3 id="subtitulo">Aplicación para el <u>cifrado</u> de mensajes de alta confidencialidad.</h3>
     </header>   
     <hr>
 <div class="container">
@@ -22,7 +23,7 @@
                 <legend>input</legend>
                 <label for="">Solo letras minúsculas, sin tildes.</label><br>
                 <textarea name="texto-input" id="texto-input" cols="80" rows="10" placeholder="Ingrese texto aquí"></textarea><br>
-                <button>Encriptar</button>
+                <button id="button-encriptar" onclick="ecriptarMensaje()">Encriptar</button>
                 <button>Descifrar</button> <!--Crear un prompt para ingresar una clave secreta, no hay el mensaje caiga en manos equivacadas...-->
             </fieldset>
         </form>
@@ -54,7 +55,58 @@
                 <li><a href="https://www.linkedin.com/in/diego-fernando-meneses-ballesteros-8a559398/"><img src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/linkedin.png" alt="linkedin" width="30" height="30"></a></li>
                 <li><a href="tel:+573228273326"><img src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/img/whatsapp.jpg" alt="whatsapp" width="30" height="30"></a></li>
             </ul>
+            <p>Para: Alura Latam/Oracle >>>  Challenge challengeOne = new Challenge(); </p>
         </nav>
-    </footer>        
+    </footer>   
+    <script>
+//================================================FUNCTIONS==========================================<
+    function ecriptarMensaje(texto){
+        var texto = mensaje.value; 
+        var textoCurado = texto.toLowerCase(); 
+        var mensEncriptado = []; 
+        var llaveA = "ai"; 
+        var llaveE = "enter"; 
+        var llaveI = "imes"; 
+        var llaveO = "ober"; 
+        var llaveU = "ufat"; 
+
+        //console.log(textoCurado);
+        for(var i = 0; i < textoCurado.length; i++){
+            //console.log(texto[i]);
+            
+            if  (textoCurado[i] === "a") {
+                mensEncriptado.push(llaveA);
+            }
+            else if (textoCurado[i] === "e"){
+                mensEncriptado.push(llaveE);
+            }
+            else if (textoCurado[i] === "i"){
+                mensEncriptado.push(llaveI);
+            }
+            else if (textoCurado[i] === "o"){
+                mensEncriptado.push(llaveO);
+            }
+            else if (textoCurado[i] === "u"){
+                mensEncriptado.push(llaveU);
+            }
+            else {
+                mensEncriptado.push(textoCurado[i]);
+            }
+        }
+        console.log(mensEncriptado);
+        var mensajeFinal = mensEncriptado.join('');  
+        console.log(mensajeFinal);  
+        
+        return mensajeFinal;        
+    }    
+//==========================================================================================<
+//-----------------------------------------MAIN--------------------------------------------->
+    var mensaje = document.querySelector("#texto-input");
+
+    var button_encriptar = document.querySelector("#button-encriptar");
+    button_encriptar.onclick = ecriptarMensaje;  
+
+//-----------------------------------------END-----------------------------------------------|
+    </script>     
 </body>
 </html>

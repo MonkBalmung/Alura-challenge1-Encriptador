@@ -49,6 +49,8 @@ footer{
     margin-top: 30px;
     width: 100%;
     height: 50px;
+    display: flexbox;
+    flex-direction: row;
 }
 #img-balmung{
     border-radius: 30% 0 30% 0;
@@ -57,4 +59,13 @@ footer{
     color: beige;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: medium;
+}
+footer > .footer-nav > .lista-socialMedia > li > a > img{
+    border-radius: 30% 0 30% 0;
+}
+footer > .footer-nav > p{
+    color:aqua; 
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;   
+    float: right;  
 }
