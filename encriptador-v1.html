@@ -60,27 +60,31 @@
     </footer>   
     <script>
 //================================================FUNCTIONS==========================================<
-function encriptarMensaje(texto){
+function validarCaracteres(texto){
     var texto = mensaje.value; 
-    var textoCurado = texto.toLowerCase(); 
+    var textoCurado = texto.toLowerCase();
+    for (j = 0; j < textoCurado.length; j++){
+        if( (( textoCurado.charCodeAt(j) >= 97 ) && ( textoCurado.charCodeAt(j) <= 122 ))){
+            encriptarMensaje(textoCurado);
+                break;
+        }else{
+            alert("***ERROR DE VALIDACIÓN*** >>> El mensaje tiene algún caracter especial. ¿Eres alienigena o algo así? Intenta con lenguaje del alfabeto terrícola.");
+            break;
+        }
+    } 
+}
+
+function encriptarMensaje(texto){
+    var textoCurado = texto;
     var mensEncriptado = [];
+    var mensajeFinal = "";
     var llaveA = "ai"; 
     var llaveE = "enter"; 
     var llaveI = "imes"; 
     var llaveO = "ober"; 
     var llaveU = "ufat"; 
     
-    for (j = 0; j < textoCurado.length; j++){
-        if( ((textoCurado.charCodeAt(j) >= 97 ) && (textoCurado.charCodeAt(j) <= 122 ))){
-                break;
-        }else{
-            alert("***ERROR DE VALIDACIÓN*** >>> El mensaje tiene algún caracter especial. ¿Eres alienigena o algo así? Intenta con lenguaje del alfabeto terrícola.");
-            break;
-        }
-    }    
     for(var i = 0; i < textoCurado.length; i++){
-        //console.log(texto[i]);
-        
         if  ((textoCurado[i] === "a") || (textoCurado[i] === "á")) {
             mensEncriptado.push(llaveA);
         }
@@ -100,9 +104,8 @@ function encriptarMensaje(texto){
             mensEncriptado.push(textoCurado[i]);
         }
     }
-    console.log(mensEncriptado);    
     
-    var mensajeFinal = mensEncriptado.join('');  
+    mensajeFinal = mensEncriptado.join('');  
     console.log(mensajeFinal);  
     
     return mensajeFinal;        
@@ -112,8 +115,7 @@ function encriptarMensaje(texto){
     var mensaje = document.querySelector("#texto-input");
 
     var button_encriptar = document.querySelector("#button-encriptar");
-    button_encriptar.onclick = encriptarMensaje;  
-
+    button_encriptar.onclick = validarCaracteres;  
 //-----------------------------------------END-----------------------------------------------|
     </script>     
 </body>
