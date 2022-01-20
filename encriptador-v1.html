@@ -24,7 +24,7 @@
                 <label for="">Ingresa el mensaje aquí: </label><br>
                 <textarea name="texto-input" id="texto-input" cols="80" rows="10" placeholder="Ingrese texto aquí"></textarea><br>
                 <button id="button-encriptar" onclick="encriptarMensaje()">Encriptar</button>
-                <button>Descifrar</button> <!--Crear un prompt para ingresar una clave secreta, no hay el mensaje caiga en manos equivacadas...-->
+                <button id="button-desencriptar" onclick="desencriptarMensaje()">Descifrar</button> <!--Crear un prompt para ingresar una clave secreta, no hay el mensaje caiga en manos equivacadas...-->
             </fieldset>
         </form>
     </div>
@@ -34,8 +34,8 @@
             <fieldset>
                 <legend>output</legend>
                 <label for="">Mensaje encriptado:</label><br>
-                <textarea name="texto-output" id="texto-output" cols="80" rows="10"></textarea><br>
-                <button>Copiar</button>
+                <textarea name="texto-output" id="texto-output" cols="80" rows="10" ></textarea><br>
+                <button id="button-copiar" onclick="copiarClipboard()">Copiar</button>
             </fieldset>    
         </form>
     </div>
@@ -58,65 +58,6 @@
             <p>Para: Alura Latam/Oracle >>>  Challenge challengeOne = new Challenge(); </p>
         </nav>
     </footer>   
-    <script>
-//================================================FUNCTIONS==========================================<
-function validarCaracteres(texto){
-    var texto = mensaje.value; 
-    var textoCurado = texto.toLowerCase();
-    for (j = 0; j < textoCurado.length; j++){
-        if( (( textoCurado.charCodeAt(j) >= 97 ) && ( textoCurado.charCodeAt(j) <= 122 ))){
-            encriptarMensaje(textoCurado);
-                break;
-        }else{
-            alert("***ERROR DE VALIDACIÓN*** >>> El mensaje tiene algún caracter especial. ¿Eres alienigena o algo así? Intenta con lenguaje del alfabeto terrícola.");
-            break;
-        }
-    } 
-}
-
-function encriptarMensaje(texto){
-    var textoCurado = texto;
-    var mensEncriptado = [];
-    var mensajeFinal = "";
-    var llaveA = "ai"; 
-    var llaveE = "enter"; 
-    var llaveI = "imes"; 
-    var llaveO = "ober"; 
-    var llaveU = "ufat"; 
-    
-    for(var i = 0; i < textoCurado.length; i++){
-        if  ((textoCurado[i] === "a") || (textoCurado[i] === "á")) {
-            mensEncriptado.push(llaveA);
-        }
-        else if ((textoCurado[i] === "e") || (textoCurado[i] === "é")) {
-            mensEncriptado.push(llaveE);
-        }
-        else if ((textoCurado[i] === "i") || (textoCurado[i] === "í")){
-            mensEncriptado.push(llaveI);
-        }
-        else if ((textoCurado[i] === "o") || (textoCurado[i] === "ó")){
-            mensEncriptado.push(llaveO);
-        }
-        else if ((textoCurado[i] === "u") || (textoCurado[i] === "ú")){
-            mensEncriptado.push(llaveU);
-        }
-        else {
-            mensEncriptado.push(textoCurado[i]);
-        }
-    }
-    
-    mensajeFinal = mensEncriptado.join('');  
-    console.log(mensajeFinal);  
-    
-    return mensajeFinal;        
-}    
-//==========================================================================================<
-//-----------------------------------------MAIN--------------------------------------------->
-    var mensaje = document.querySelector("#texto-input");
-
-    var button_encriptar = document.querySelector("#button-encriptar");
-    button_encriptar.onclick = validarCaracteres;  
-//-----------------------------------------END-----------------------------------------------|
-    </script>     
+    <script src="/Users/MENESES-FLOREZ/Desktop/SYSTEMS/ALURA-ONE/LOGICA-PROGRAMACION/CHALLENGE_1/script.js"></script>     
 </body>
 </html>

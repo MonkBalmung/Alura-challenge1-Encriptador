@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 #encabezado, #img-enigma, #titulo, #subtitulo{
     border-radius: 20%;
     text-align: center;
