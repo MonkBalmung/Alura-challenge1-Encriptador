@@ -1,5 +1,6 @@
 //================================================FUNCTIONS==========================================<
-function validarCaracteres(texto){
+function validarCaracteres(event){
+    event.preventDefault();
     var texto = mensajeInput.value; 
     var textoMinusculas = texto.toLowerCase();
     for (j = 0; j < textoMinusculas.length; j++){
@@ -50,10 +51,12 @@ function encriptarMensaje(texto){
     var mensajeOutput = document.querySelector("#texto-output");   
     document.getElementById("texto-output").value = mensajeEncriptado;    
     mensajeOutput.value = mensajeEncriptado;
+    mensajeInput.value = "";
 
         return mensajeEncriptado;        
 }    
-function desencriptarMensaje(texto){
+function desencriptarMensaje(event){
+    event.preventDefault();
     var mensajeEncriptado = mensajeInput.value;
     var textoProcesado = [];
     var mensajeDesencriptado = "";
@@ -82,11 +85,11 @@ function copiarClipboard(){
     var mensajeOutput = document.querySelector("#texto-output");  
 
     var button_encriptar = document.querySelector("#button-encriptar");
-    button_encriptar.onclick = validarCaracteres;    
+    button_encriptar.addEventListener("click", validarCaracteres);    
     
     var button_desencriptar = document.querySelector("#button-desencriptar");
-    button_desencriptar.onclick = desencriptarMensaje; 
+    button_desencriptar.addEventListener("click", desencriptarMensaje); 
 
     var button_copiar = document.querySelector("#button-copiar");
-    button_copiar.onclick = copiarClipboard; 
+    button_copiar.addEventListener("click", copiarClipboard); 
 //-----------------------------------------END-----------------------------------------------|
