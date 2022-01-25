@@ -1,6 +1,11 @@
 *{
     box-sizing: border-box;
 }
+button{
+    font-weight: bolder;
+    font-size: large;
+    border-radius: 10px;
+}
 #encabezado, #img-enigma, #titulo, #subtitulo{
     border-radius: 20%;
     text-align: center;
